@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Day 1 visual lesson: the FDE role, evidence baseline, and customer outcome.">
+  <title>Day 01 — FDE Role & Customer Outcome</title>
+  <link rel="stylesheet" href="day-01.css">
+</head>
+<body>
+  <a class="skip" href="#lesson">Skip to lesson</a>
+  <header class="topbar"><a href="../index.html">← 45-day atlas</a><span>DAY 01 · IN PROGRESS</span></header>
+
+  <main id="lesson">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PHASE 01 · DISCOVERY</p>
+        <h1>Start with the outcome.<br>Not the agent.</h1>
+        <p>An FDE owns the distance between an ambiguous customer problem and a reliable, measurable result. Technology is selected after the problem and constraints are understood.</p>
+      </div>
+      <div class="day-stamp"><span>DAY</span><b>01</b><small>Role · baseline · outcome</small></div>
+    </section>
+
+    <section class="section contrast">
+      <div class="section-title"><span>01</span><div><p>THE CORE DISTINCTION</p><h2>Output is what we make.<br>Outcome is what improves.</h2></div></div>
+      <div class="contrast-grid">
+        <article class="output"><span>OUTPUT</span><h3>“The agent generated a reply.”</h3><ul><li>model responded</li><li>workflow completed</li><li>feature exists</li></ul><b>Necessary, but not proof of value.</b></article>
+        <div class="not-equal" aria-label="does not necessarily equal">≠</div>
+        <article class="outcome"><span>OUTCOME</span><h3>“The agent helped approve a useful response faster and safely.”</h3><ul><li>customer workflow improved</li><li>quality guardrail held</li><li>result was measured</li></ul><b>This is the reason to build.</b></article>
+      </div>
+      <aside class="example"><b>Example:</b> A beautiful multi-agent demo with no users, no baseline, and no measured improvement is an output—not an FDE outcome.</aside>
+    </section>
+
+    <section class="section role">
+      <div class="section-title light"><span>02</span><div><p>THE ROLE</p><h2>Four responsibilities.<br>One accountable owner.</h2></div></div>
+      <div class="role-grid">
+        <article><b>01</b><h3>Discover</h3><p>Observe workflows, interview stakeholders, separate facts from assumptions, and identify the costly constraint.</p><small>Artifact: discovery evidence</small></article>
+        <article><b>02</b><h3>Build</h3><p>Deliver the smallest end-to-end solution across UI, API, data, integration, and AI where justified.</p><small>Artifact: tested vertical slice</small></article>
+        <article><b>03</b><h3>Operate</h3><p>Protect data, control actions, instrument failures, deploy safely, and support the system in its real environment.</p><small>Artifact: traces and runbook</small></article>
+        <article><b>04</b><h3>Measure</h3><p>Track adoption and impact, learn from rejection and failure, then turn field feedback into the next iteration.</p><small>Artifact: before/after result</small></article>
+      </div>
+      <div class="role-equation"><span>FDE</span><i>=</i><b>customer translator</b><i>+</i><b>full-stack builder</b><i>+</i><b>production operator</b><i>+</i><b>outcome partner</b></div>
+    </section>
+
+    <section class="section loop-section">
+      <div class="section-title"><span>03</span><div><p>THE DELIVERY LOOP</p><h2>Every stage leaves evidence.</h2></div></div>
+      <div class="loop">
+        <article><b>DISCOVER</b><span>workflow + baseline</span></article><i>→</i>
+        <article><b>DEFINE</b><span>scope + guardrails</span></article><i>→</i>
+        <article><b>BUILD</b><span>vertical slice + tests</span></article><i>→</i>
+        <article><b>DEPLOY</b><span>integration + runbook</span></article><i>→</i>
+        <article><b>MEASURE</b><span>impact + feedback</span></article><i>↺</i>
+      </div>
+      <div class="framework-warning"><span>FRAMEWORK CHECK</span><p>LangGraph, vector databases, MCP, and multi-agent systems are possible implementation choices inside this loop. They are not substitutes for it.</p></div>
+    </section>
+
+    <section class="section baseline">
+      <div class="section-title"><span>04</span><div><p>PRELIMINARY BASELINE</p><h2>Score the evidence,<br>not your confidence.</h2></div></div>
+      <p class="intro">This first estimate uses evidence from your Document Insight Generator. Level 0 is not failure—it tells us what this lab must prove.</p>
+      <div class="baseline-layout">
+        <div class="bars" aria-label="Preliminary competency levels from zero to three">
+          <div><span>Software engineering</span><i><b style="--score: 66%"></b></i><strong>2</strong></div>
+          <div><span>Communication</span><i><b style="--score: 66%"></b></i><strong>2</strong></div>
+          <div><span>Product judgment</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
+          <div><span>Data engineering</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
+          <div><span>Integration</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
+          <div><span>Security</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
+          <div><span>Production</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
+          <div><span>Discovery</span><i><b style="--score: 3%"></b></i><strong>0</strong></div>
+          <div><span>AI / agent engineering</span><i><b style="--score: 3%"></b></i><strong>0</strong></div>
+          <div><span>Measured impact</span><i><b style="--score: 3%"></b></i><strong>0</strong></div>
+        </div>
+        <div class="level-key"><h3>Evidence levels</h3><div><b>0</b><span>No evidence yet</span></div><div><b>1</b><span>Can deliver with guidance</span></div><div><b>2</b><span>Can choose, build, and explain independently</span></div><div><b>3</b><span>Can deliver under ambiguous field constraints</span></div><p>Strongest current signal: a documented, tested React/FastAPI vertical slice. Largest gaps: customer discovery, real evaluated AI, and business impact.</p></div>
+      </div>
+    </section>
+
+    <section class="section customer-outcome">
+      <div class="section-title"><span>05</span><div><p>OUR CAPSTONE</p><h2>Anatomy of a useful<br>customer outcome.</h2></div></div>
+      <blockquote>For <mark>Northstar support agents</mark>, reduce the <mark>median time</mark> from ticket arrival to an <mark>approved, evidence-backed first useful response</mark>, without reducing <mark>correct routing</mark> or permitting <mark>unauthorized external actions</mark>.</blockquote>
+      <div class="anatomy">
+        <article><span>WHO</span><b>Support agent</b><p>The person whose workflow must improve.</p></article>
+        <article><span>CHANGE</span><b>Reduce elapsed time</b><p>The direction of measurable improvement.</p></article>
+        <article><span>QUALITY</span><b>Evidence + routing</b><p>Speed cannot trade away correctness.</p></article>
+        <article><span>SAFETY</span><b>No unauthorized action</b><p>Approval remains outside model judgment.</p></article>
+      </div>
+      <div class="hypothesis"><b>Important:</b><p>This outcome is still a hypothesis. We will not invent a percentage target before discovery and baseline measurement.</p></div>
+    </section>
+
+    <section class="section contexts">
+      <div class="section-title"><span>06</span><div><p>WHY COMPANIES CARE</p><h2>Same discipline.<br>Different operating context.</h2></div></div>
+      <div class="context-grid">
+        <article class="mnc"><span>MNC</span><h3>Coordination and governance</h3><ul><li>many stakeholders and approval paths</li><li>existing identity, data, and platform standards</li><li>formal security and architecture reviews</li><li>change management and measurable rollout</li></ul><p>Day 1 prevents local technical success from conflicting with enterprise constraints.</p></article>
+        <article class="startup"><span>STARTUP</span><h3>Focus and learning speed</h3><ul><li>limited time, runway, and engineering capacity</li><li>rapid customer feedback and changing priorities</li><li>simple architecture and short delivery cycles</li><li>clear unit economics and adoption signals</li></ul><p>Day 1 prevents fast execution on a low-value problem.</p></article>
+      </div>
+    </section>
+
+    <section class="section exercise">
+      <div class="section-title light"><span>07</span><div><p>YOUR TURN</p><h2>Day 1 is learned<br>when you can explain it.</h2></div></div>
+      <ol>
+        <li><span>01</span><p>Explain the FDE role in two sentences without saying only “builds agents.”</p></li>
+        <li><span>02</span><p>Name your strongest competency and cite evidence from work you completed.</p></li>
+        <li><span>03</span><p>Name the competency needing the most improvement and explain why.</p></li>
+        <li><span>04</span><p>Rewrite the Northstar customer outcome in your own words.</p></li>
+        <li><span>05</span><p>Identify one harmful behavior if we optimize only response speed.</p></li>
+      </ol>
+      <div class="gate"><span>COMPLETION GATE</span><p>Your answers must distinguish output from outcome, use evidence for the baseline, and include user, workflow, measurable change, and guardrails.</p></div>
+      <a class="worksheet" href="../../progress/day-01.md">Open the Day 1 worksheet →</a>
+    </section>
+  </main>
+  <footer><span>FDE Field Lab · Day 01</span><a href="../index.html">Return to atlas ↑</a></footer>
+</body>
+</html>

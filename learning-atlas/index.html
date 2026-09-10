@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual 45-day learning plan for Forward Deployed Engineering and production agentic systems.">
+  <title>FDE Field Atlas — 45-Day Intensive</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the learning plan</a>
+  <header class="topbar">
+    <a class="brand" href="#top"><span>F</span> FDE FIELD ATLAS</a>
+    <nav aria-label="Atlas sections">
+      <a href="#plan">45 days</a><a href="#architecture">System map</a><a href="#langgraph">LangGraph</a><a href="#retrieval">Retrieval</a><a href="#principles">Principles</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">VISUAL FIELD GUIDE · FOUNDATION SPRINT</p>
+        <h1>Forty-five days. One complete FDE loop.</h1>
+        <p class="lede">A focused intensive to discover, build, ground, integrate, operate, and prove one customer solution—not a shortcut to mastering every framework.</p>
+        <div class="hero-actions"><a class="button primary" href="#plan">Explore the daily plan</a><a class="button secondary" href="#architecture">Understand the system</a></div>
+      </div>
+      <div class="orbit" aria-label="FDE delivery loop">
+        <div class="ring ring-one"></div><div class="ring ring-two"></div>
+        <div class="core"><b>CUSTOMER<br>IMPACT</b><small>the reason to build</small></div>
+        <span class="satellite discover">Discover</span><span class="satellite build">Build</span><span class="satellite deploy">Deploy</span><span class="satellite measure">Measure</span>
+      </div>
+    </section>
+
+    <section class="truth-strip" aria-label="Sprint expectation">
+      <div><b>15 days</b><span>Vocabulary + shallow prototype</span></div>
+      <div><b>30 days</b><span>Customer, product, and agent core</span></div>
+      <div class="selected"><b>45 days</b><span>One evidenced end-to-end intensive</span></div>
+      <div><b>Field-ready</b><span>Proven customer and production experience</span></div>
+    </section>
+
+    <section class="section" id="plan">
+      <div class="section-heading"><div><span class="number">01</span><p>THE PLAN</p></div><div><h2>Every day answers “what, why, and where?”</h2><p>Choose a phase, then open a day. Each card connects learning to implementation, enterprise use, startup use, and reviewable evidence.</p></div></div>
+      <div class="week-tabs" role="tablist" aria-label="Learning phases">
+        <button role="tab" aria-selected="true" data-week="1"><b>Days 1–7</b><span>Discover</span></button>
+        <button role="tab" aria-selected="false" data-week="2"><b>Days 8–15</b><span>Product baseline</span></button>
+        <button role="tab" aria-selected="false" data-week="3"><b>Days 16–22</b><span>Agent core</span></button>
+        <button role="tab" aria-selected="false" data-week="4"><b>Days 23–29</b><span>Retrieval</span></button>
+        <button role="tab" aria-selected="false" data-week="5"><b>Days 30–36</b><span>Tools & MCP</span></button>
+        <button role="tab" aria-selected="false" data-week="6"><b>Days 37–43</b><span>Production</span></button>
+        <button role="tab" aria-selected="false" data-week="7"><b>Days 44–45</b><span>Forward deploy</span></button>
+      </div>
+      <div class="week-outcome" aria-live="polite"><span>PHASE 1 OUTCOME</span><strong id="week-outcome">A customer discovery pack, measurable outcome, and scoped architecture.</strong></div>
+      <div class="day-grid" id="day-grid"></div>
+      <noscript><p class="noscript">JavaScript is required to browse the daily cards. The complete plan is also available in <code>docs/45-day-roadmap.md</code>.</p></noscript>
+    </section>
+
+    <section class="rhythm">
+      <div class="rhythm-title"><span>DAILY RHYTHM</span><h2>3–4 focused hours</h2><p>Each day produces evidence. Watching content alone does not complete a day.</p></div>
+      <ol><li><b>Learn</b><span>30–45 min</span></li><li><b>Explain</b><span>15 min</span></li><li><b>Build</b><span>60–120 min</span></li><li><b>Verify</b><span>30–45 min</span></li><li><b>Record</b><span>15 min</span></li></ol>
+    </section>
+
+    <section class="section architecture" id="architecture">
+      <div class="section-heading"><div><span class="number">02</span><p>SYSTEM MAP</p></div><div><h2>An agent is one layer inside a customer system.</h2><p>Identity and policy wrap the complete flow. A good model cannot repair unauthorized retrieval, an unsafe tool, or a missing business metric.</p></div></div>
+      <div class="system-flow">
+        <article class="customer"><span>01</span><h3>Customer surface</h3><p>UI · API · Slack · ticketing</p></article><i>→</i>
+        <article class="graph"><span>02</span><h3>Workflow graph</h3><p>state · nodes · routes · pause</p></article><i>→</i>
+        <article class="knowledge"><span>03</span><h3>Knowledge</h3><p>keyword · vector · filters</p></article><i>→</i>
+        <article class="model"><span>04</span><h3>Model layer</h3><p>route · reason · validate</p></article><i>→</i>
+        <article class="tools"><span>05</span><h3>Tool layer</h3><p>read · propose · approve</p></article><i>→</i>
+        <article class="evidence"><span>06</span><h3>Evidence</h3><p>trace · evaluate · impact</p></article>
+      </div>
+      <div class="wrapper"><b>WRAPS EVERY LAYER</b><span>Authentication · tenant isolation · authorization · redaction · audit · retention</span></div>
+    </section>
+
+    <section class="section langgraph" id="langgraph">
+      <div class="section-heading"><div><span class="number coral">03</span><p>ORCHESTRATION</p></div><div><h2>LangGraph makes changing workflows explicit.</h2><p>Use it for branching, checkpoints, bounded loops, human interruption, and recovery—not because every LLM application needs a graph.</p></div></div>
+      <div class="graph-layout">
+        <div class="state-card"><span>SHARED CONTRACT</span><h3>State</h3><p>The typed snapshot passed between nodes.</p><ul><li>ticket and tenant IDs</li><li>classification and risk</li><li>evidence references</li><li>draft and confidence</li><li>approval and errors</li></ul><aside><b>Not state:</b> secrets, database clients, all documents, or unlimited conversation history.</aside></div>
+        <div class="graph-board" aria-label="Support workflow graph">
+          <div class="node terminal">START</div><i>↓</i><div class="node">Validate ticket<small>deterministic node</small></div><i>↓</i><div class="node">Classify<small>small routed model</small></div>
+          <div class="branch"><span>safe ↙</span><span>↘ sensitive</span></div><div class="parallel"><div class="node">Retrieve<small>hybrid evidence</small></div><div class="node warning">Escalate<small>policy route</small></div></div>
+          <i>↓</i><div class="node">Draft + cite<small>validated output</small></div><i>↓</i><div class="node gate">Human approval<small>interrupt + checkpoint</small></div><i>↓</i><div class="node terminal">Tool executes → END</div>
+        </div>
+        <div class="parts">
+          <article><span>WORK UNIT</span><h3>Node</h3><p>Reads state, performs one responsibility, returns a small update.</p></article>
+          <article><span>ROUTING</span><h3>Edge</h3><p>Chooses the next node from explicit state and deterministic policy.</p></article>
+          <article><span>DURABILITY</span><h3>Checkpointer</h3><p>Persists state by run ID so a workflow can pause and resume.</p></article>
+          <article><span>CONTROL</span><h3>Interrupt</h3><p>Stops before a high-impact action and waits for real authorization.</p></article>
+        </div>
+      </div>
+      <div class="use-grid"><article><h3>Use LangGraph when</h3><ul class="yes"><li>approval pauses execution</li><li>runs must resume after failure</li><li>routes and bounded loops exist</li><li>you evaluate state transitions</li></ul></article><article><h3>Do not use it when</h3><ul class="no"><li>one model call solves the task</li><li>a short pipeline is already clear</li><li>it hides unclear requirements</li><li>durable state cannot be operated</li></ul></article></div>
+    </section>
+
+    <section class="section retrieval" id="retrieval">
+      <div class="section-heading"><div><span class="number mint">04</span><p>RETRIEVAL</p></div><div><h2>Index evidence, not a vector dump.</h2><p>Semantic search handles meaning. Keyword search protects exact names, IDs, error codes, and rare terms. Authorized hybrid retrieval combines both.</p></div></div>
+      <h3 class="lane">INDEXING LANE <span>documents become searchable units</span></h3>
+      <div class="pipeline"><article><b>01</b><h3>Ingest</h3><p>source ID · ACL · cursor</p></article><i>→</i><article><b>02</b><h3>Parse</h3><p>text · tables · headings</p></article><i>→</i><article><b>03</b><h3>Chunk</h3><p>semantic boundaries</p></article><i>→</i><article><b>04</b><h3>Enrich</h3><p>tenant · version · hash</p></article><i>→</i><article class="split"><b>05</b><h3>Index twice</h3><p>embeddings + BM25</p></article></div>
+      <h3 class="lane">QUERY LANE <span>question becomes authorized evidence</span></h3>
+      <div class="query-flow"><div class="query">“Why does ACME see error E-1042?”<small>query + user + tenant + intent</small></div><div class="fork"><span>↙</span><span>↘</span></div><div class="searches"><article><b>Semantic / vector</b><p>meaning and paraphrases</p></article><article><b>Keyword / BM25</b><p>exact codes and rare terms</p></article></div><div class="merge">Fuse ranks → ACL filter → rerank → context budget → cite</div></div>
+      <div class="explain-grid"><article><b>MORE DOCUMENTS</b><h3>Index incrementally</h3><p>Queue changed sources, compare content hashes, re-index changed chunks, tombstone deletions, batch embeddings, and measure freshness lag.</p></article><article><b>WHY METADATA?</b><h3>Provenance and access</h3><p>Stable chunk IDs, source, version, tenant, ACL, page, and section make results explainable, updateable, and enforceable.</p></article><article><b>SKIP VECTOR DB WHEN</b><h3>Exact systems are better</h3><p>Use SQL or keyword lookup for authoritative records, tiny corpora, strict filters, or when retrieval quality cannot yet be evaluated.</p></article></div>
+    </section>
+
+    <section class="section principles" id="principles">
+      <div class="section-heading"><div><span class="number">05</span><p>FIELD RULES</p></div><div><h2>Complexity must earn its place.</h2><p>These controls turn an agent demonstration into an operable FDE solution.</p></div></div>
+      <div class="principle-grid">
+        <article><span>MODEL ROUTING</span><h3>Smallest model that meets the evaluated threshold</h3><p>Route by task, risk, quality, latency, cost, and availability. Define malformed-output and provider-outage fallbacks.</p></article>
+        <article><span>TOOLS</span><h3>Typed contracts and risk classes</h3><p>Separate reads from writes. Validate arguments, authorize in code, and return machine-readable results.</p></article>
+        <article><span>STATE & MEMORY</span><h3>Transient is not durable or retrieved</h3><p>Keep workflow state, business history, and long-term knowledge in stores suited to their access and retention needs.</p></article>
+        <article><span>MULTI-AGENT</span><h3>Separate responsibility, not personality</h3><p>Use typed handoffs, narrow permissions, budgets, and termination. Compare against a single-agent baseline.</p></article>
+        <article><span>MCP</span><h3>Standard protocol, not a security boundary</h3><p>Hosts discover tools and resources from servers. Authentication, authorization, approval, and validation remain your responsibility.</p></article>
+        <article><span>EVALUATION</span><h3>Inspect outcome and trajectory</h3><p>Evaluate routes, retrieval, context, tool arguments, retries, approvals, final quality, latency, cost, and safety.</p></article>
+        <article><span>RELIABILITY</span><h3>Every dependency will fail</h3><p>Timeout, classify errors, retry only safe retryable operations, back off, reconcile side effects, and test degraded modes.</p></article>
+        <article><span>OBSERVABILITY</span><h3>Trace decisions without leaking data</h3><p>Record step metadata, routes, IDs, timing, tokens, cost, and outcomes. Redact prompts, documents, secrets, payloads, and PII.</p></article>
+      </div>
+      <div class="final-rule"><span>THE FDE TEST</span><h2>Simple enough to explain.<br>Controlled enough to trust.<br>Useful enough to measure.</h2></div>
+    </section>
+  </main>
+  <footer><span>FDE Field Lab · Visual learning atlas</span><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
