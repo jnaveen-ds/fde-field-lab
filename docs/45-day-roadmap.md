@@ -28,7 +28,7 @@ An optional three-hour **GenAI orientation** may be completed between Days 1 and
 ### Framework policy
 
 - **FastAPI, Pydantic, PostgreSQL, and the UI choice** form the candidate deterministic application stack; Day 6 records the final choice in an ADR.
-- **React/TypeScript and Streamlit** are compared for the operator UI. React is the default for a durable support workflow; Streamlit is a valid rapid-pilot alternative when UI complexity is not part of the customer problem.
+- **Streamlit and React/TypeScript** are compared for the operator UI. Streamlit is the primary choice for this 45-day intensive so more time remains for agent, retrieval, integration, and production depth; React is the durable-product alternative when richer interaction, frontend scale, or design-system integration becomes a customer requirement.
 - A **provider-neutral model contract** remains the application boundary. LangChain may implement that contract, but product code must not depend directly on provider response shapes.
 - **LangGraph** starts only when conditional routing, checkpointing, and human interruption justify graph orchestration.
 - **pgvector/vector retrieval, BM25 keyword retrieval, and hybrid fusion** are compared using the same labelled queries and stable chunk identities.

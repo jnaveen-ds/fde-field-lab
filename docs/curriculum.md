@@ -28,7 +28,7 @@ Convert the fictional customer brief into a scoped delivery proposal. Role-play 
 
 ### Learn
 
-- Python, TypeScript, HTTP, REST, JSON, Git, and Linux
+- Python, Streamlit, HTTP, REST, JSON, Git, and Linux; enough React/TypeScript architecture to evaluate the durable-UI alternative
 - SQL, relational modelling, transactions, indexes, and migrations
 - frontend state, forms, accessibility, and error handling
 - testing, debugging, logs, configuration, and secret handling
