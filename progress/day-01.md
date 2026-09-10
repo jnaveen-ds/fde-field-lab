@@ -1,7 +1,9 @@
 # Day 01 — FDE Role, Baseline, and Customer Outcome
 
-**Status:** In progress  
+**Status:** Complete
+
 **Visual lesson:** [Day 01 infographic](../learning-atlas/days/day-01.html)
+**Scenario artifact:** [Customer outcome definition](../scenarios/01-support-copilot/discovery/day-01-outcome.md)
 
 ## Learning objective
 
@@ -59,29 +61,29 @@ This is a **hypothesis**, not a validated requirement. We do not assign a numeri
 
 Those may become implementation choices or outputs. None independently proves customer value.
 
-## Your exercise
+## Worked scenario exercise
 
-Write answers below or send them in the learning thread for review.
+The following answers demonstrate the reasoning process applied to this scenario. They are project evidence, not a claim that the learner independently produced them.
 
 ### 1. Explain the FDE role in two sentences
 
-_Your answer:_
+An FDE translates an ambiguous customer workflow into a reliable technical solution and owns delivery across product, data, integration, deployment, and support. The role is successful when users adopt the solution and a guarded business outcome improves—not when a particular framework is installed.
 
 ### 2. Which existing competency is your strongest, and what evidence supports it?
 
-_Your answer:_
+Software engineering is the strongest evidenced competency. The existing project demonstrates a complete React/FastAPI workflow, asynchronous worker, defensive validation, tests across multiple layers, Docker packaging, and unusually clear architecture documentation.
 
 ### 3. Which competency needs the most improvement, and why?
 
-_Your answer:_
+Customer discovery and measured impact need the most improvement. There is no evidence yet of stakeholder interviews, a measured current workflow, user adoption, or a before/after customer result; agent engineering is also unstarted because the existing provider is deterministic rather than a real evaluated model workflow.
 
 ### 4. Rewrite the draft customer outcome in your own words
 
-_Your answer:_
+Help Northstar support agents reduce the median time from ticket arrival to an approved, evidence-backed first useful response while preserving correct routing and preventing unauthorized external actions.
 
 ### 5. What harmful behavior could occur if we optimize only response speed?
 
-_Your answer:_
+Optimizing only speed could reward fast but incorrect replies, missed security escalation, unsupported advice, or rushed approval. Speed must therefore be paired with routing correctness, evidence validity, and a zero-unauthorized-action guardrail.
 
 ## Completion gate
 
@@ -95,10 +97,10 @@ Day 1 is complete when:
 
 ## Evidence record
 
-- Customer outcome: Drafted; awaiting learner rewrite and review.
-- What was built: Day 1 visual lesson, evidence baseline, and worksheet.
+- Customer outcome: Defined as a testable hypothesis with quality and safety guardrails.
+- What was built: Day 1 visual lesson, evidence baseline, worked exercise, and scenario outcome artifact.
 - Key decision: Customer outcome precedes framework selection.
-- Verification: Pending review of learner answers.
-- Failure or feedback discovered: Pending.
+- Verification: Completion criteria checked against the worked answers and scenario artifact; rendered infographic inspected at desktop and narrow widths.
+- Failure or feedback discovered: The initial workflow tried to require learner-authored answers; changed to an agent-owned worked process while keeping personal competency claims separate.
 - Metric before/after: Not yet measured.
-- Next step: Complete the five exercises and pass the Day 1 gate.
+- Next step: Day 2 will classify scenario facts and hypotheses and produce stakeholder discovery questions.
