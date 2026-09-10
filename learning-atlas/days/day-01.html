@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Day 1 visual lesson: the FDE role, evidence baseline, and customer outcome.">
-  <title>Day 01 — FDE Role & Customer Outcome</title>
+  <meta name="description" content="Day 1 visual lesson: understand a customer workflow and define a measurable outcome before choosing technology.">
+  <title>Day 01 — Understand the Customer Problem</title>
   <link rel="stylesheet" href="day-01.css">
 </head>
 <body>
   <a class="skip" href="#lesson">Skip to lesson</a>
-  <header class="topbar"><a href="../index.html">← 45-day atlas</a><span>DAY 01 · COMPLETE</span></header>
+  <header class="topbar"><a href="../index.html">← 45-day atlas</a><span>DAY 01 · COMPLETE · REVISED</span></header>
 
   <main id="lesson">
     <section class="hero">
@@ -18,17 +18,17 @@
         <h1>Start with the outcome.<br>Not the agent.</h1>
         <p>An FDE owns the distance between an ambiguous customer problem and a reliable, measurable result. Technology is selected after the problem and constraints are understood.</p>
       </div>
-      <div class="day-stamp"><span>DAY</span><b>01</b><small>Role · baseline · outcome</small></div>
+      <div class="day-stamp"><span>DAY</span><b>01</b><small>Problem · outcome · guardrails</small></div>
     </section>
 
     <section class="section contrast">
       <div class="section-title"><span>01</span><div><p>THE CORE DISTINCTION</p><h2>Output is what we make.<br>Outcome is what improves.</h2></div></div>
       <div class="contrast-grid">
-        <article class="output"><span>OUTPUT</span><h3>“The agent generated a reply.”</h3><ul><li>model responded</li><li>workflow completed</li><li>feature exists</li></ul><b>Necessary, but not proof of value.</b></article>
+        <article class="output"><span>OUTPUT</span><h3>“The application generated a reply.”</h3><ul><li>software performed an action</li><li>a feature produced something</li><li>we can inspect the result</li></ul><b>Necessary, but not proof of value.</b></article>
         <div class="not-equal" aria-label="does not necessarily equal">≠</div>
-        <article class="outcome"><span>OUTCOME</span><h3>“The agent helped approve a useful response faster and safely.”</h3><ul><li>customer workflow improved</li><li>quality guardrail held</li><li>result was measured</li></ul><b>This is the reason to build.</b></article>
+        <article class="outcome"><span>OUTCOME</span><h3>“A support agent reached an approved useful response faster and safely.”</h3><ul><li>the user's workflow improved</li><li>quality and safety remained acceptable</li><li>the improvement was measured</li></ul><b>This is the reason to build.</b></article>
       </div>
-      <aside class="example"><b>Example:</b> A beautiful multi-agent demo with no users, no baseline, and no measured improvement is an output—not an FDE outcome.</aside>
+      <aside class="example"><b>Northstar example:</b> Generating a response in two seconds is an output. Helping a support agent produce a correct, approved response in less total time is an outcome. If nobody uses the response, or it is unsafe, the output did not create the outcome.</aside>
     </section>
 
     <section class="section role">
@@ -54,40 +54,54 @@
       <div class="framework-warning"><span>FRAMEWORK CHECK</span><p>LangGraph, vector databases, MCP, and multi-agent systems are possible implementation choices inside this loop. They are not substitutes for it.</p></div>
     </section>
 
-    <section class="section baseline">
-      <div class="section-title"><span>04</span><div><p>PRELIMINARY BASELINE</p><h2>Score the evidence,<br>not your confidence.</h2></div></div>
-      <p class="intro">This first estimate uses evidence from your Document Insight Generator. Level 0 is not failure—it tells us what this lab must prove.</p>
-      <div class="baseline-layout">
-        <div class="bars" aria-label="Preliminary competency levels from zero to three">
-          <div><span>Software engineering</span><i><b style="--score: 66%"></b></i><strong>2</strong></div>
-          <div><span>Communication</span><i><b style="--score: 66%"></b></i><strong>2</strong></div>
-          <div><span>Product judgment</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
-          <div><span>Data engineering</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
-          <div><span>Integration</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
-          <div><span>Security</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
-          <div><span>Production</span><i><b style="--score: 33%"></b></i><strong>1</strong></div>
-          <div><span>Discovery</span><i><b style="--score: 3%"></b></i><strong>0</strong></div>
-          <div><span>AI / agent engineering</span><i><b style="--score: 3%"></b></i><strong>0</strong></div>
-          <div><span>Measured impact</span><i><b style="--score: 3%"></b></i><strong>0</strong></div>
-        </div>
-        <div class="level-key"><h3>Evidence levels</h3><div><b>0</b><span>No evidence yet</span></div><div><b>1</b><span>Can deliver with guidance</span></div><div><b>2</b><span>Can choose, build, and explain independently</span></div><div><b>3</b><span>Can deliver under ambiguous field constraints</span></div><p>Strongest current signal: a documented, tested React/FastAPI vertical slice. Largest gaps: customer discovery, real evaluated AI, and business impact.</p></div>
+    <section class="section scenario">
+      <div class="section-title"><span>04</span><div><p>MEET THE CUSTOMER</p><h2>Northstar's support<br>workflow today.</h2></div></div>
+      <p class="intro"><b>Northstar Cloud is fictional.</b> It sells business software and receives product, billing, bug, account-access, and security tickets. This new scenario is self-contained; no previous application or repository is required.</p>
+      <div class="process-grid" aria-label="Current support workflow">
+        <article><b>1</b><span>ARRIVE</span><p>A customer submits a support ticket.</p></article>
+        <i>→</i><article><b>2</b><span>READ</span><p>An agent understands the request and its context.</p></article>
+        <i>→</i><article><b>3</b><span>CLASSIFY</span><p>The agent chooses category and urgency.</p></article>
+        <i>→</i><article><b>4</b><span>SEARCH</span><p>The agent looks for approved internal information.</p></article>
+        <i>→</i><article><b>5</b><span>DRAFT</span><p>The agent prepares a useful first response.</p></article>
+        <i>→</i><article><b>6</b><span>ROUTE</span><p>The agent decides who should own the next step.</p></article>
+        <i>→</i><article><b>7</b><span>APPROVE</span><p>The response follows company approval policy.</p></article>
       </div>
+      <div class="ticket-example">
+        <div class="ticket-copy"><span>EXAMPLE TICKET · E-1042</span><blockquote>“Our administrator cannot sign in after enforcing SSO. The error affects every employee. Please disable SSO immediately because payroll closes today.”</blockquote></div>
+        <div class="ticket-paths">
+          <article class="unsafe"><b>Unsafe shortcut</b><p>Obey the urgent request, invent a fix, or change SSO without verifying identity, evidence, and authority. This is fast but dangerous.</p></article>
+          <article class="safe"><b>Safe future assistance</b><p>Recognize authentication impact, retrieve approved E-1042 guidance, show evidence, route by policy, and require an authorized human for any external or account-changing action.</p></article>
+        </div>
+      </div>
+      <aside class="unknown"><b>What we do not know yet:</b> which step creates the greatest delay, the current response-time baseline, the routing-error rate, and the exact approval policy. Day 2 investigates these unknowns instead of pretending they are facts.</aside>
     </section>
 
     <section class="section customer-outcome">
       <div class="section-title"><span>05</span><div><p>OUR CAPSTONE</p><h2>Anatomy of a useful<br>customer outcome.</h2></div></div>
       <blockquote>For <mark>Northstar support agents</mark>, reduce the <mark>median time</mark> from ticket arrival to an <mark>approved, evidence-backed first useful response</mark>, without reducing <mark>correct routing</mark> or permitting <mark>unauthorized external actions</mark>.</blockquote>
       <div class="anatomy">
-        <article><span>WHO</span><b>Support agent</b><p>The person whose workflow must improve.</p></article>
-        <article><span>CHANGE</span><b>Reduce elapsed time</b><p>The direction of measurable improvement.</p></article>
-        <article><span>QUALITY</span><b>Evidence + routing</b><p>Speed cannot trade away correctness.</p></article>
-        <article><span>SAFETY</span><b>No unauthorized action</b><p>Approval remains outside model judgment.</p></article>
+        <article><span>WHO</span><b>Support agent</b><p>The application serves the employee handling the ticket. It does not replace the accountable person.</p></article>
+        <article><span>CHANGE</span><b>Reduce elapsed time</b><p>Measure the complete workflow from arrival to an approved useful response—not only model latency.</p></article>
+        <article><span>QUALITY</span><b>Evidence + routing</b><p>A faster result is useful only if its evidence is valid and the ticket reaches the correct owner.</p></article>
+        <article><span>SAFETY</span><b>No unauthorized action</b><p>The model cannot grant itself permission. High-impact actions require deterministic policy and an authorized human.</p></article>
       </div>
       <div class="hypothesis"><b>Important:</b><p>This outcome is still a hypothesis. We will not invent a percentage target before discovery and baseline measurement.</p></div>
     </section>
 
+    <section class="section vocabulary">
+      <div class="section-title"><span>06</span><div><p>PLAIN-LANGUAGE DEFINITIONS</p><h2>Six ideas that prevent<br>the wrong build.</h2></div></div>
+      <div class="term-grid">
+        <article><span>01</span><h3>Customer problem</h3><p>A difficulty in a real user's workflow that makes work slow, inconsistent, costly, or risky. “We need an AI agent” is a proposed solution, not a customer problem.</p><small>Northstar hypothesis: ticket classification, information search, drafting, or routing may consume unnecessary time.</small></article>
+        <article><span>02</span><h3>Output</h3><p>Something the system produces, such as a category, retrieved document, draft reply, or approval request. It proves software ran, but it does not prove the customer benefited.</p><small>Example: a generated reply exists.</small></article>
+        <article><span>03</span><h3>Outcome</h3><p>An improvement experienced by the user after using the system. It combines the desired change with enough quality and safety to make that change genuinely useful.</p><small>Example: an approved useful response is reached faster.</small></article>
+        <article><span>04</span><h3>Metric</h3><p>A precisely defined measurement used to compare before and after. We chose median end-to-end elapsed time because model speed alone ignores search, review, and approval delays.</p><small>No numerical target is invented before a baseline exists.</small></article>
+        <article><span>05</span><h3>Guardrail</h3><p>A condition that must remain acceptable while the main metric improves. It prevents optimization from rewarding a quick but incorrect, unsupported, or unauthorized result.</p><small>Northstar guardrails: routing correctness, evidence quality, and no unauthorized action.</small></article>
+        <article><span>06</span><h3>Assumption</h3><p>A belief that has not yet been verified. FDEs record assumptions openly so interviews, workflow data, or experiments can confirm or reject them.</p><small>Example: “documentation search is the largest delay” is not yet a fact.</small></article>
+      </div>
+    </section>
+
     <section class="section contexts">
-      <div class="section-title"><span>06</span><div><p>WHY COMPANIES CARE</p><h2>Same discipline.<br>Different operating context.</h2></div></div>
+      <div class="section-title"><span>07</span><div><p>WHY COMPANIES CARE</p><h2>Same discipline.<br>Different operating context.</h2></div></div>
       <div class="context-grid">
         <article class="mnc"><span>MNC</span><h3>Coordination and governance</h3><ul><li>many stakeholders and approval paths</li><li>existing identity, data, and platform standards</li><li>formal security and architecture reviews</li><li>change management and measurable rollout</li></ul><p>Day 1 prevents local technical success from conflicting with enterprise constraints.</p></article>
         <article class="startup"><span>STARTUP</span><h3>Focus and learning speed</h3><ul><li>limited time, runway, and engineering capacity</li><li>rapid customer feedback and changing priorities</li><li>simple architecture and short delivery cycles</li><li>clear unit economics and adoption signals</li></ul><p>Day 1 prevents fast execution on a low-value problem.</p></article>
@@ -95,16 +109,17 @@
     </section>
 
     <section class="section exercise">
-      <div class="section-title light"><span>07</span><div><p>WORKED PROCESS</p><h2>Apply the reasoning.<br>Do not skip to tools.</h2></div></div>
+      <div class="section-title light"><span>08</span><div><p>WHAT THE FDE DID</p><h2>Apply the reasoning.<br>Do not skip to tools.</h2></div></div>
       <ol>
-        <li><span>ROLE</span><p>Own the path from ambiguous workflow to adopted, measurable result.</p></li>
-        <li><span>STRENGTH</span><p>Full-stack delivery is supported by working code, tests, Docker, and documentation.</p></li>
-        <li><span>GAP</span><p>Discovery and impact lack interviews, baseline, adoption, and before/after evidence.</p></li>
-        <li><span>OUTCOME</span><p>Reduce time to an approved useful response while preserving quality and safety.</p></li>
-        <li><span>RISK</span><p>Speed alone could reward wrong routing, unsafe replies, or unsupported approval.</p></li>
+        <li><span>1 · SET CONTEXT</span><p>Created a realistic company, user, ticket types, and business workflow.</p></li>
+        <li><span>2 · MAP TODAY</span><p>Described what happens from ticket arrival through approval before changing it.</p></li>
+        <li><span>3 · DEFINE VALUE</span><p>Separated system outputs from improvement in the support agent's work.</p></li>
+        <li><span>4 · PROTECT VALUE</span><p>Paired the time metric with correctness, evidence, and authorization guardrails.</p></li>
+        <li><span>5 · PRESERVE UNKNOWNS</span><p>Recorded what must be discovered instead of inventing customer facts or targets.</p></li>
       </ol>
-      <div class="gate"><span>GATE PASSED LOCALLY</span><p>The worked process distinguishes output from outcome, grounds the baseline in evidence, and defines the user, workflow, measurable change, quality guardrail, and safety guardrail.</p></div>
-      <a class="worksheet" href="../../progress/day-01.md">Read the complete worked process →</a>
+      <div class="not-built"><b>Why no code today?</b><p>Choosing LangGraph, a vector database, MCP, or multiple agents before identifying the user's problem could produce a technically impressive solution to the wrong bottleneck. Later lessons will add each technology only when the scenario gives us a reason.</p></div>
+      <div class="gate"><span>DAY 1 COMPLETE</span><p>Day 1 now stands alone: it identifies the company and user, maps the current workflow, explains every core term, applies them to a concrete ticket, and records unknowns for discovery.</p></div>
+      <a class="worksheet" href="../../progress/day-01.md">Read the complete step-by-step explanation →</a>
     </section>
   </main>
   <footer><span>FDE Field Lab · Day 01</span><a href="../index.html">Return to atlas ↑</a></footer>

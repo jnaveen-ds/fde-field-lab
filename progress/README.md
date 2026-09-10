@@ -4,7 +4,7 @@ This index records evidence for each completed learning day. A day is tagged onl
 
 | Day | Topic | Status | Evidence | Git snapshot |
 | --- | --- | --- | --- | --- |
-| 01 | FDE role, baseline, and customer outcome | Complete | [Worked process](day-01.md) · [Scenario outcome](../scenarios/01-support-copilot/discovery/day-01-outcome.md) · [Visual lesson](../learning-atlas/days/day-01.html) | [`day-01-complete`](https://github.com/jnaveen-ds/fde-field-lab/tree/day-01-complete) |
+| 01 | Understand the customer problem before building | Complete — revised | [Step-by-step explanation](day-01.md) · [Scenario outcome](../scenarios/01-support-copilot/discovery/day-01-outcome.md) · [Visual lesson](../learning-atlas/days/day-01.html) | [`day-01-revised`](https://github.com/jnaveen-ds/fde-field-lab/tree/day-01-revised) |
 
 ## Status meanings
 

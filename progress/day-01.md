@@ -1,106 +1,172 @@
-# Day 01 — FDE Role, Baseline, and Customer Outcome
+# Day 01 — Understand the Customer Problem Before Building
 
-**Status:** Complete
+**Status:** Complete — revised after learner feedback
 
 **Visual lesson:** [Day 01 infographic](../learning-atlas/days/day-01.html)
-**Scenario artifact:** [Customer outcome definition](../scenarios/01-support-copilot/discovery/day-01-outcome.md)
+**Scenario artifact:** [Northstar problem and outcome](../scenarios/01-support-copilot/discovery/day-01-outcome.md)
 
-## Learning objective
+## What are we doing in this project?
 
-Explain how a Forward Deployed Engineer differs from a framework specialist, assess current evidence honestly, and define a customer outcome before selecting technology.
+We are going to build a **Support Operations Copilot** for a fictional company called **Northstar Cloud**.
 
-## Core distinction
+Northstar sells business software. Its customers contact the support team when they have product questions, billing problems, software bugs, or security concerns. A support agent reads each ticket, decides how urgent it is, finds the relevant company documentation, prepares a reply, and sometimes sends the ticket to another team.
 
-- **Output:** software or model behavior produced, such as an AI-generated reply.
-- **Outcome:** a measurable improvement experienced by the customer, such as a faster approved response without lower routing quality.
+Our future application will help the support agent perform those steps. It may eventually use deterministic rules, language models, retrieval, LangGraph, tools, MCP, and a carefully evaluated multi-agent workflow. However, Day 1 does not implement those technologies. Day 1 defines the problem that those technologies may later solve.
 
-An output can work technically while producing no useful outcome.
+## Why don't we start by coding?
 
-## Preliminary evidence baseline
+Suppose we immediately build an agent that drafts replies. Later, we learn that drafting is already fast and the actual delay comes from waiting for security approval. The application would work technically but solve the wrong problem.
 
-This is an initial assessment from the existing Document Insight Generator repository. It is not a final rating of the learner.
+An FDE avoids this by first answering:
 
-| Competency | Preliminary level | Existing evidence | Important gap |
-| --- | --- | --- | --- |
-| Discovery | 0 — Not started | No customer interview or workflow evidence found | Validate a real problem and assumptions |
-| Product judgment | 1 — Guided | Honest POC scope and documented non-production limits | Connect scope to customer baseline and impact |
-| Software engineering | 2 — Independent | React/FastAPI vertical slice, worker, tests, Docker | Demonstrate iterative customer-driven delivery |
-| Data engineering | 1 — Guided | Atomic filesystem persistence and explicit state transitions | SQL modelling, migrations, retention, recovery |
-| AI engineering | 0 — Not started | Provider interface exists, but implementation is deterministic fake analysis | Real model contract, baseline, labelled evals |
-| Agent engineering | 0 — Not started | No agent workflow implemented | State, tools, control, trace evals, approvals |
-| Integration | 1 — Guided | Browser, API, worker, PDF parser, artifact integration | External enterprise API/webhook and reconciliation |
-| Security | 1 — Guided | Validation, safe errors, path containment | Identity, authorization, tenancy, threat model |
-| Production | 1 — Guided | Container and Railway configuration | CI, observability, SLOs, failure and restore proof |
-| Communication | 2 — Independent | Strong architecture and learning documentation | Customer-facing discovery and outcome narrative |
-| Impact | 0 — Not started | No adoption or before/after evidence | Baseline, pilot, feedback, measurable result |
+1. Who experiences the problem?
+2. What do they do today?
+3. Where might time, quality, or safety be lost?
+4. What improvement should the customer experience?
+5. How will we know whether the improvement happened?
+6. What must the system never do?
 
-The correct response to a low score is not embarrassment. It identifies what evidence the lab must produce.
+This is not paperwork before engineering. It prevents expensive engineering in the wrong direction.
 
-## Draft customer outcome
+## Important Day 1 terms
 
-> For Northstar support agents, reduce the median time from ticket arrival to an approved, evidence-backed first useful response, without reducing correct routing or permitting unauthorized external actions.
+### Customer problem
 
-This is a **hypothesis**, not a validated requirement. We do not assign a numerical target until discovery and baseline work establish one.
+A customer problem is a difficulty inside a real workflow. It should describe what makes the user's work slow, expensive, inconsistent, or risky.
 
-### Anatomy
+For Northstar, the possible problem is not “we do not have an AI agent.” The possible problem is that support agents may spend too much time classifying tickets, searching for approved information, preparing useful replies, and deciding where tickets should go.
 
-- **User:** Northstar support agent
-- **Workflow:** ticket triage and first response
-- **Desired change:** reduce elapsed time
-- **Quality guardrail:** preserve correct routing and evidence quality
-- **Safety guardrail:** no unauthorized external action
-- **Candidate measure:** median time to approved first useful response
+We say **possible problem** because we have not interviewed the fictional stakeholders or measured their workflow yet. Day 2 will separate known scenario facts from assumptions.
 
-### Not the outcome
+### Output
 
-- build a LangGraph application;
-- use multiple agents;
-- connect a vector database;
-- generate a support reply;
-- maximize automation.
+An output is something the system produces.
 
-Those may become implementation choices or outputs. None independently proves customer value.
+Examples include:
 
-## Worked scenario exercise
+- a predicted ticket category;
+- a list of retrieved documents;
+- a generated response draft;
+- a request for human approval.
 
-The following answers demonstrate the reasoning process applied to this scenario. They are project evidence, not a claim that the learner independently produced them.
+Outputs show that software performed work. They do not prove that the customer's situation improved.
 
-### 1. Explain the FDE role in two sentences
+### Outcome
 
-An FDE translates an ambiguous customer workflow into a reliable technical solution and owns delivery across product, data, integration, deployment, and support. The role is successful when users adopt the solution and a guarded business outcome improves—not when a particular framework is installed.
+An outcome is the improvement experienced by the customer after using the system.
 
-### 2. Which existing competency is your strongest, and what evidence supports it?
+For example, if an agent generates a response in two seconds but the response is wrong, unsupported, or never approved, the output exists but the desired outcome did not happen. A useful outcome would be that the support agent reaches a correct, approved first response faster and with suitable evidence.
 
-Software engineering is the strongest evidenced competency. The existing project demonstrates a complete React/FastAPI workflow, asynchronous worker, defensive validation, tests across multiple layers, Docker packaging, and unusually clear architecture documentation.
+### Metric
 
-### 3. Which competency needs the most improvement, and why?
+A metric is a defined measurement used to compare the workflow before and after a change.
 
-Customer discovery and measured impact need the most improvement. There is no evidence yet of stakeholder interviews, a measured current workflow, user adoption, or a before/after customer result; agent engineering is also unstarted because the existing provider is deterministic rather than a real evaluated model workflow.
+Our candidate metric is the **median elapsed time from ticket arrival to an approved first useful response**. “Median” means the middle observed value after ordering all measured response times. It is often more representative than an average when a few unusual tickets take a very long time.
 
-### 4. Rewrite the draft customer outcome in your own words
+We have not selected a numerical target because we do not yet know Northstar's current response time.
 
-Help Northstar support agents reduce the median time from ticket arrival to an approved, evidence-backed first useful response while preserving correct routing and preventing unauthorized external actions.
+### Guardrail
 
-### 5. What harmful behavior could occur if we optimize only response speed?
+A guardrail is a condition that must remain safe or acceptable while another metric improves.
 
-Optimizing only speed could reward fast but incorrect replies, missed security escalation, unsupported advice, or rushed approval. Speed must therefore be paired with routing correctness, evidence validity, and a zero-unauthorized-action guardrail.
+If we optimize only speed, the application might recommend a fast but incorrect reply or fail to escalate a security ticket. Therefore, routing correctness, evidence quality, and unauthorized-action rate are guardrails. Faster is acceptable only when those protections remain within agreed limits.
 
-## Completion gate
+### Assumption
 
-Day 1 is complete when:
+An assumption is something we currently believe but have not verified.
 
-- the FDE role is explained without defining it as “someone who builds agents”;
-- one strong and one weak competency are supported by evidence;
-- the customer outcome identifies user, workflow, measurable change, and guardrails;
-- output and outcome are clearly distinguished;
-- at least one risk of optimizing the metric is identified.
+“Documentation search is the largest delay” is an assumption. We must not present it as a customer fact until interviews or measurements support it. FDEs explicitly track assumptions because hidden assumptions often cause failed projects.
 
-## Evidence record
+## The Northstar workflow today
 
-- Customer outcome: Defined as a testable hypothesis with quality and safety guardrails.
-- What was built: Day 1 visual lesson, evidence baseline, worked exercise, and scenario outcome artifact.
-- Key decision: Customer outcome precedes framework selection.
-- Verification: Completion criteria checked against the worked answers and scenario artifact; rendered infographic inspected at desktop and narrow widths.
-- Failure or feedback discovered: The initial workflow tried to require learner-authored answers; changed to an agent-owned worked process while keeping personal competency claims separate.
-- Metric before/after: Not yet measured.
-- Next step: Day 2 will classify scenario facts and hypotheses and produce stakeholder discovery questions.
+This is our initial understanding from the fictional scenario:
+
+1. A customer submits a support ticket.
+2. A support agent reads it.
+3. The agent identifies its category and urgency.
+4. The agent searches internal documentation or previous cases.
+5. The agent prepares a first response.
+6. The agent decides whether support can handle it or another team must become involved.
+7. The response is reviewed or sent according to company policy.
+
+We have not yet measured which step causes the greatest delay. We will investigate that instead of guessing.
+
+## Concrete example
+
+### Incoming ticket
+
+> “Our administrator cannot sign in after enforcing SSO. Error E-1042 appears for every employee. Please disable SSO immediately because payroll closes today.”
+
+### What an unsafe application might do
+
+It might classify this as urgent, invent a troubleshooting answer, or attempt to disable SSO because the customer requested it. That would be fast but potentially incorrect and dangerous.
+
+### What our planned copilot should eventually do
+
+1. Identify the ticket as a high-impact authentication problem.
+2. Preserve the tenant and requester identity.
+3. Retrieve authorized documentation that specifically addresses error `E-1042`.
+4. Present evidence and a suggested response to the support agent.
+5. Escalate according to deterministic security/account policy.
+6. Refuse to change SSO directly.
+7. Require an authorized human before any external response or account-changing action.
+
+This example explains why we will later study keyword search, vector search, routing, tools, approvals, and observability. It does not yet prove which implementation is best.
+
+## Customer outcome selected for the scenario
+
+> Help Northstar support agents reduce the median time from ticket arrival to an approved, evidence-backed first useful response, while preserving correct routing and preventing unauthorized external actions.
+
+### Breaking the statement down
+
+| Question | Answer |
+| --- | --- |
+| Who should benefit? | Northstar support agents |
+| Which workflow changes? | Ticket triage and preparation of the first useful response |
+| What should improve? | Median elapsed time should decrease |
+| What quality must remain? | Correct routing and evidence-backed responses |
+| What must never happen? | An unauthorized external or account-changing action |
+| What is still unknown? | Current baseline, numerical target, and which workflow step is the largest delay |
+
+## What did the FDE actually do on Day 1?
+
+1. Created a realistic customer setting instead of a generic chatbot idea.
+2. Described the user's current workflow in plain language.
+3. Distinguished software outputs from customer outcomes.
+4. Proposed one measurable outcome without inventing a numerical target.
+5. Added quality and safety guardrails so speed cannot reward harmful behavior.
+6. Documented unresolved questions rather than disguising them as facts.
+7. Deferred framework selection until later evidence establishes a need.
+
+## How this helps in different companies
+
+### In an MNC
+
+An FDE may need agreement from support leadership, security, legal, identity teams, platform teams, and business owners. A precise outcome and explicit guardrails let those groups review the same proposed change. This reduces the risk that a locally successful prototype violates a broader company requirement.
+
+### In a startup
+
+The company has limited time, money, and engineers. Starting with the outcome prevents spending several weeks on an impressive agent that users do not need. A clear metric also helps founders decide whether the feature deserves further investment.
+
+## What Day 1 did not do
+
+- No application backend or frontend was created.
+- No model was called.
+- No LangGraph workflow was implemented.
+- No vector database was selected.
+- No MCP server was created.
+- No multi-agent system was created.
+
+Those are later engineering steps. Day 1 created the problem definition that will be used to judge whether those steps are useful.
+
+## Completion evidence
+
+- The scenario can be understood without another repository.
+- The current workflow and a concrete example are documented.
+- Output, outcome, metric, guardrail, and assumption are explained.
+- The proposed outcome names the user, workflow, desired change, and protections.
+- Unknowns are preserved for Day 2 discovery.
+
+## Next day
+
+Day 2 will create a fact-versus-assumption register and detailed stakeholder questions. We will simulate how an FDE interviews support, security, and engineering stakeholders instead of inventing their needs.

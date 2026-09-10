@@ -1,77 +1,73 @@
-# Day 01 — Customer Outcome Definition
+# Day 01 Scenario Artifact — Northstar Problem and Outcome
 
-## Purpose
+## Company and user
 
-Define why the Support Operations Copilot may be worth building before choosing AI, retrieval, or orchestration technology.
+Northstar Cloud is a fictional company that sells business software. Its support agents handle product questions, billing issues, software defects, account-access problems, and security-sensitive reports.
 
-## Process performed
+This scenario is self-contained. It does not depend on any previously built repository or application.
 
-### 1. Inputs examined
+## Current workflow
 
-- the Northstar scenario brief;
-- preliminary engineering evidence from the existing Document Insight Generator;
-- stated constraints around human approval, sensitive actions, untrusted content, and audit history;
-- the FDE competency rubric.
+1. A customer submits a ticket.
+2. A support agent reads and interprets it.
+3. The agent chooses a category and urgency.
+4. The agent searches approved internal information.
+5. The agent prepares a useful first response.
+6. The agent decides whether support can continue or another team must take ownership.
+7. The response or escalation follows the required approval policy.
 
-### 2. Evidence classified
+## Possible customer problem
 
-| Statement | Classification | Treatment |
-| --- | --- | --- |
-| Northstar receives product, billing, bug, and security tickets | Scenario fact | Use to define workflow scope |
-| Agents manually categorize, search, draft, and escalate | Scenario fact | Use as the initial current-state workflow |
-| Documentation search is the largest delay | Hypothesis | Validate during stakeholder discovery |
-| Suggested categories can be reliable | Hypothesis | Compare rules and model outputs against labelled cases |
-| Human agents remain accountable for external responses | Stated constraint | Enforce as an application approval boundary |
-| Faster first responses create customer value | Hypothesis | Validate against support priorities and quality guardrails |
+The workflow may be slower and less consistent than necessary because classification, information search, drafting, and escalation depend heavily on each agent's experience.
 
-### 3. Output separated from outcome
+This is still a hypothesis. We do not yet know which step creates the largest delay or quality problem.
 
-- **Possible output:** classify a ticket or generate a response draft.
-- **Desired outcome:** help a support agent reach an approved, useful first response faster while preserving correctness and safety.
+## Proposed outcome
 
-The project will not use “agent successfully generated text” as a business-success measure.
+> Help Northstar support agents reduce the median time from ticket arrival to an approved, evidence-backed first useful response, while preserving correct routing and preventing unauthorized external actions.
 
-### 4. Draft outcome selected
+## Why this is an outcome
 
-> Help Northstar support agents reduce the median elapsed time from ticket arrival to an approved, evidence-backed first useful response, while preserving correct routing and preventing unauthorized external actions.
+The statement describes an improvement in the support agent's workflow. It does not claim that generating text, using LangGraph, or adding multiple agents is itself success.
 
-### 5. Outcome anatomy
+The outcome contains:
 
-| Element | Definition |
-| --- | --- |
-| User | Northstar support agent |
-| Workflow | Triage and prepare the first useful response |
-| Desired change | Reduce median elapsed time |
-| Quality guardrail | Preserve correct routing and evidence quality |
-| Safety guardrail | No external action without authorized human approval |
-| Candidate measure | Median time from ticket arrival to approved first useful response |
+- a user: support agent;
+- a workflow: triage and prepare the first useful response;
+- a measurable direction: reduce median elapsed time;
+- a quality guardrail: preserve correct routing and evidence;
+- a safety guardrail: prevent unauthorized external actions.
 
-No numerical target is assigned yet because the current baseline and stakeholder priorities are unknown.
+## Example ticket used to test our reasoning
 
-## Decisions
+> “Our administrator cannot sign in after enforcing SSO. Error E-1042 appears for every employee. Please disable SSO immediately because payroll closes today.”
 
-1. Optimize the human support workflow rather than maximize autonomous ticket handling.
-2. Treat deterministic rules as the first baseline and degraded-mode fallback.
-3. Defer LangGraph, retrieval, MCP, and multiple agents until requirements demonstrate their need.
-4. Evaluate speed with quality and safety guardrails so the metric cannot reward careless routing or unsafe replies.
+This ticket contains urgency, an exact error code, an account-security boundary, and a request for a high-impact action. A useful future system should retrieve approved evidence, recommend safe routing, and require authorized human action. It must not disable SSO merely because the ticket requests it.
 
-## Rejected outcome statements
+## Decisions made
 
-- “Build a customer-support agent.” — describes a solution, not an improvement.
-- “Automate 80% of tickets.” — invents a target and may reward unsafe automation.
-- “Use LangGraph and a vector database.” — describes technology without customer value.
-- “Generate accurate responses.” — does not identify baseline, workflow location, or measurable change.
+1. Build a copilot for a human agent, not an autonomous customer-support replacement.
+2. Measure improvement in the customer workflow rather than model response speed alone.
+3. Preserve deterministic approval for external communication and account-changing actions.
+4. Start with a deterministic application baseline before introducing probabilistic AI.
+5. Select LangGraph, retrieval, MCP, or multiple agents only when later requirements justify them.
 
-## Primary risk of optimizing speed alone
+## Known versus unknown
 
-The system could produce fast but incorrect replies, under-prioritize security incidents, route billing or account-access requests incorrectly, or encourage approval without sufficient evidence. Therefore, routing correctness, evidence validity, and unauthorized-action rate are mandatory guardrails.
+### Known inside this fictional scenario
 
-## Unknowns carried into discovery
+- support receives several kinds of tickets;
+- agents currently classify, search, draft, and escalate;
+- a human remains accountable for external responses;
+- sensitive actions require stronger control than ordinary information lookup.
 
-- Which ticket stage consumes the most elapsed and active agent time?
-- What does Northstar consider a “useful” first response?
-- Which categories have the highest cost of incorrect routing?
-- What current routing and response-quality baselines exist?
-- Which actions require support lead, security, billing, or engineering approval?
+### Still unknown
 
-These remain unknown rather than being silently converted into requirements.
+- which workflow step consumes the most time;
+- the current median time to a useful first response;
+- the current routing-error rate;
+- the highest-risk ticket categories;
+- the exact approval policy;
+- which internal systems and documents exist.
+
+Day 2 investigates these unknowns rather than silently turning them into requirements.
