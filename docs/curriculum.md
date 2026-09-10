@@ -2,7 +2,29 @@
 
 This curriculum is ordered by delivery dependency, not by hype. Progress to the next phase after demonstrating the exit evidence for the current phase.
 
-## Phase 1 — Product and engineering foundations
+## Phase 1 — Customer discovery and solution design
+
+### Learn
+
+- stakeholder interviews and workflow mapping
+- functional and non-functional requirements
+- user stories and acceptance criteria
+- assumptions, risks, constraints, and trade-off communication
+- success metrics and baseline measurement
+
+### Build
+
+Convert the fictional customer brief into a scoped delivery proposal. Role-play discovery first, then validate it with real users when possible.
+
+### Exit evidence
+
+- discovery notes and current-state workflow;
+- prioritized requirements and explicit non-goals;
+- architecture decision records;
+- measurable baseline and target outcomes;
+- customer gate review and correction notes.
+
+## Phase 2 — Product and engineering foundations
 
 ### Learn
 
@@ -22,28 +44,6 @@ A non-AI vertical slice for the support scenario: create a ticket, apply determi
 - unit, API, and browser tests;
 - architecture diagram and API contract;
 - reproducible local setup and debugging notes.
-
-## Phase 2 — Customer discovery and solution design
-
-### Learn
-
-- stakeholder interviews and workflow mapping
-- functional and non-functional requirements
-- user stories and acceptance criteria
-- assumptions, risks, constraints, and trade-off communication
-- success metrics and baseline measurement
-
-### Build
-
-Convert a fictional customer brief into a scoped delivery proposal. Role-play discovery first, then validate it with real users when possible.
-
-### Exit evidence
-
-- discovery notes and current-state workflow;
-- prioritized requirements and explicit non-goals;
-- architecture decision records;
-- measurable baseline and target outcomes;
-- customer demo and feedback notes.
 
 ## Phase 3 — Applied AI and agents
 
@@ -146,8 +146,8 @@ Run a small pilot with real users or a realistically simulated customer team. Ob
 ## Optional depth after the core
 
 - Kubernetes when orchestration requirements justify it
-- MCP when standardized external tool discovery adds value
-- multi-agent systems when role separation beats a simpler workflow in evaluations
+- broader MCP capabilities when standardized external tool discovery adds value beyond the intensive's one read-only capability
+- advanced multi-agent systems when role separation has already beaten the intensive's simpler workflow in evaluations
 - advanced ML training when the customer problem cannot be solved with existing models
 
 These are tools, not graduation requirements.

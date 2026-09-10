@@ -6,6 +6,12 @@ This is an intensive foundation and portfolio pathway, not a promise of complete
 
 Plan for 3–4 focused hours on six days followed by one review/rest day. If an evidence gate fails, use the next day to close it rather than advancing by date.
 
+## Learner calibration
+
+The working assumption is that the learner has useful Python/ML foundations but is newer to production LLM applications. Existing ML knowledge transfers to problem framing, datasets, metrics, error analysis, and experimentation; the plan explicitly adds token economics, structured model outputs, retrieval, tool safety, controlled orchestration, trace evaluation, and production LLM reliability.
+
+An optional three-hour **GenAI orientation** may be completed between Days 1 and 2. It covers one model API call, message roles, tokens and context windows, sampling variability, cost estimation, and a schema-validated response. It does not replace customer discovery or alter the 45-day sequence.
+
 ## Scope decisions
 
 ### Included
@@ -18,6 +24,17 @@ Plan for 3–4 focused hours on six days followed by one review/rest day. If an 
 - one read-only MCP capability;
 - one bounded multi-agent experiment compared with a simpler design;
 - CI, staged deployment, observability, one failure exercise, and a case study.
+
+### Framework policy
+
+- **FastAPI, Pydantic, PostgreSQL, and the UI choice** form the candidate deterministic application stack; Day 6 records the final choice in an ADR.
+- **React/TypeScript and Streamlit** are compared for the operator UI. React is the default for a durable support workflow; Streamlit is a valid rapid-pilot alternative when UI complexity is not part of the customer problem.
+- A **provider-neutral model contract** remains the application boundary. LangChain may implement that contract, but product code must not depend directly on provider response shapes.
+- **LangGraph** starts only when conditional routing, checkpointing, and human interruption justify graph orchestration.
+- **pgvector/vector retrieval, BM25 keyword retrieval, and hybrid fusion** are compared using the same labelled queries and stable chunk identities.
+- **RAGAS/DeepEval and model-judge scores** are secondary evidence for generated grounded answers, not substitutes for independently labelled retrieval and task metrics.
+- **LangSmith** may accelerate LLM trace inspection; OpenTelemetry-compatible application telemetry remains the vendor-neutral operational boundary.
+- **MCP** is limited to one allowlisted read-only capability during the intensive.
 
 ### Deferred
 
