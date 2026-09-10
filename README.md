@@ -36,7 +36,7 @@ Completion means producing evidence, not merely reading about a topic. See the [
 
 Production agent work follows the repository's [agentic AI engineering principles](docs/agentic-ai-principles.md): explicit model routing, typed tools, separated state and memory, controlled orchestration, trace evaluations, deterministic approval gates, and secure observability.
 
-The main pathway is a single-source [45-day FDE intensive](docs/45-day-roadmap.md). The interactive [FDE Field Atlas](learning-atlas/index.html) explains its daily purpose, MNC and startup applications, LangGraph anatomy, hybrid indexing, and production principles visually.
+The main pathway is documented in the [45-day FDE intensive](docs/45-day-roadmap.md) and the filterable [45-day Excel plan](docs/FDE-45-Day-Plan.xlsx). The workbook records every day's purpose, technicality, hands-on build, integration path, verification evidence, and MNC/startup relevance. The interactive [FDE Field Atlas](learning-atlas/index.html) explains the roadmap, LangGraph anatomy, hybrid indexing, and production principles visually.
 
 ## Scenario roadmap
 
@@ -73,6 +73,7 @@ The first milestone is **customer discovery and problem definition**. We will no
 docs/                         Curriculum, rubric, and shared engineering guidance
   agentic-ai-principles.md    Production rules for models, tools, state, and agents
   45-day-roadmap.md           Intensive sequence, scope, gates, and outcomes
+  FDE-45-Day-Plan.xlsx        Filterable daily plan and technical index
 learning-atlas/               Interactive HTML infographic
 progress/                     Daily exercises, evidence, and Git snapshots
 scenarios/                    Customer briefs and scenario-specific evidence
